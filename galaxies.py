@@ -14,8 +14,8 @@ if __name__ == "__main__":
     data = pd.read_csv('sdss_redshift.csv')
     
 
-    source_file = 'sdss_redshift.csv'
-    copy_file = 'sdss_predict.csv'
+    source_file = 'sdss.csv'
+    copy_file = 'sdss_predict1.csv'
     shutil.copyfile(source_file, copy_file)
     
     
@@ -51,6 +51,8 @@ if __name__ == "__main__":
     x = df.to_numpy()
     y_pred =regr.predict(x)
 
-    dk = pd.read_csv('sdss_predict.csv')
+    dk = pd.read_csv('sdss_predict1.csv')
     dk['redshift'] = y_pred
+    
+    dk.to_csv('sdss_predict1.csv')   
  
